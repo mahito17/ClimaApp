@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClimaApp.View.WeatherPage"
+             xmlns:local="clr-namespace:ClimaApp.ViewModel"
+             >
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:WeatherViewModelPage x:Key="weatherViewModel"></local:WeatherViewModelPage>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout BindingContext="{Binding Source={StaticResource weatherViewModel}}">
+            
+            <SearchBar Placeholder="Ingrese ciudad"
+                       Text="{Binding ResultTerm}"
+                       SearchCommand="{Binding BuscarCommand}"
+                       ></SearchBar>
+            
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                
+                    <RowDefinition></RowDefinition>
+                
+                    <RowDefinition></RowDefinition>
+                
+                    <RowDefinition></RowDefinition>
+                
+                    <RowDefinition></RowDefinition>
+                
+                    <RowDefinition></RowDefinition>
+                
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                
+                    <ColumnDefinition></ColumnDefinition>
+                
+                </Grid.ColumnDefinitions>
+
+                
+                <Label Text="Ubicacion" 
+                       FontAttributes="Bold"/>
+                
+                <Label Text="{Binding Ubicacion}"
+                       Grid.Column="1"                      
+                       ></Label>
+                
+                <Label Text="Pais" 
+                       FontAttributes="Bold"
+                       Grid.Row="1"/>
+                
+                <Label Text="{Binding Pais}"
+                       Grid.Column="1"
+                       Grid.Row="1"
+                       ></Label>
+                
+                <Label Text="Region" 
+                       FontAttributes="Bold"
+                       Grid.Row="2"/>
+               
+                <Label Text="{Binding Region}"
+                       Grid.Column="1"
+                       Grid.Row="2"
+                       ></Label>
+               
+                <Label Text="Ultima Actualizacion" 
+                       FontAttributes="Bold"
+                       Grid.Row="3"/>
+                
+                <Label Text="{Binding UltimaActualizacion}"
+                       Grid.Column="1"
+                       Grid.Row="3"
+                       ></Label>
+                
+                <Label Text="Temperatura" 
+                       FontAttributes="Bold"
+                       Grid.Row="4"/>
+                
+                <Label Text="{Binding Temperatura}"
+                       Grid.Column="1"
+                       Grid.Row="4"
+                       ></Label>
+                
+                <Label Text="Clima" 
+                       FontAttributes="Bold"
+                       Grid.Row="5"/>
+                
+                <Label Text="{Binding Clima}"
+                       Grid.Column="1"
+                       Grid.Row="5"
+                       ></Label>
+
+            </Grid>
+            
+            <Image 
+                       HeightRequest="200"
+                       WidthRequest="200"
+                       Source="{Binding Image}"
+                       ></Image>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

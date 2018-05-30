@@ -11,7 +11,7 @@ namespace ClimaApp
 		{
 			InitializeComponent();
 
-			MainPage = new MainPage();
+			MainPage = new View.WeatherPage();
 		}
 
 		protected override void OnStart ()
